@@ -9,17 +9,17 @@ class Knight(Thread):
         super().__init__()
         self.name = name
         self.power = power
-        self._enemies = enemies
+        self.enemies = enemies
         Knight.knights += 1
 
     def run(self):
         count_days = 0
         print(f'{self.name}, на нас напали!')
-        while self._enemies > 0:
-            self._enemies -= self.power
+        while self.enemies > 0:
+            self.enemies -= self.power
             sleep(1)
             count_days += 1
-            print(f'{self.name} сражается {count_days} дней(дня), осталось {self._enemies} воинов.')
+            print(f'{self.name} сражается {count_days} дней(дня), осталось {self.enemies} воинов.')
         else:
             print(f'{self.name} одержал победу спустя {count_days} дней(дня)!')
 
